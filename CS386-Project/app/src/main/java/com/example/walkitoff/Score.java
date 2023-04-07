@@ -78,21 +78,6 @@ public class Score {
         return Integer.parseInt(MainActivity.uScore);
     }
 
-    /**
-     * updates the total score in the database
-     */
-    public static void sendScoreToServer(){
-        String error = "";
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(ConnectDB.hostName, ConnectDB.adminName, ConnectDB.dbPass);
-            Statement statement = connection.createStatement();
-            statement.executeQuery("UPDATE user SET user_score = " + totalScore +  " WHERE id = 1");
-        }catch (Exception e) {
-            error = e.toString();
-        }
-
-    }
 
     /**
      * used for accessing the total score from outside the class
